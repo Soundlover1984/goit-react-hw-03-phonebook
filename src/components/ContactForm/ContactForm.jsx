@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonForm } from 'components/ButtonForm/ButtonForm';
-import { MdPersonAddAlt1 } from 'react-icons/md';
+import { MdPersonAddAlt } from 'react-icons/md';
 import { Label, Form } from './ContactForm.styled';
 import { InputItem } from 'components/InputItem/InputItem';
 
@@ -10,6 +10,17 @@ export class ContactForm extends Component {
   state = {
     name: '',
     number: '',
+  };
+
+  onInputChange = event => {
+    const { name, value } = event.currentTarget;
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.onAddBtnClick(this.state)
+    this.resetForm();
   };
 
   render() {
@@ -40,7 +51,7 @@ export class ContactForm extends Component {
         </Label>
         <ButtonForm
           type="submit"
-          icon={MdPersonAddAlt1}
+          icon={MdPersonAddAlt}
           status="add"
           text="Add contact"
         />
