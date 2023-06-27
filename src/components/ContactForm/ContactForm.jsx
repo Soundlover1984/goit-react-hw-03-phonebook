@@ -19,8 +19,12 @@ export class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onAddBtnClick(this.state)
+    this.props.onAddBtnClick(this.state);
     this.resetForm();
+  };
+
+  resetForm = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {
