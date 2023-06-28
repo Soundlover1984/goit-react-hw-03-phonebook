@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const ListItem = styled.li`
-  min-width: 50vw;
+  min-width: 600px;
   display: flex;
   font-weight: bold;
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
-  padding: 32px;
+  padding: 24px;
   border-radius: 12px;
-  background-color: hsla(215, 98%, 79%, 0.1);
-  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+  background-color: hsla(215, 98%, 79%, 0.2);
+  border: #5f5c59 solid 2px;
 `;
 
 export const ListItemData = styled.p`

@@ -11,13 +11,13 @@ export const Container = styled.div`
 `;
 
 export const MainHeader = styled.h1`
-  font-size: 42px;
+  font-size: 36px;
   color: #010101;
   text-transform: uppercase;
 `;
 
 export const SubHeader = styled.h2`
-  font-size: 36px;
+  font-size: 30px;
   color: #010101;
   text-transform: uppercase;
 `;
