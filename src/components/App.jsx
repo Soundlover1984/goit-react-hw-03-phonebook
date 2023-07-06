@@ -18,6 +18,24 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contactsFromStorage = JSON.parse(localStorage.getItem('contacts'));
+
+    if (contactsFromStorage) {
+      this.setState({ contacts: contactsFromStorage });
+
+      if (contactsFromStorage.length === 0) {
+        Notiflix.Notify.info('No contacts in your list yet');
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   onAddBtnClick = FormData => {
     const { name, number } = FormData;
     const includesName = this.state.contacts.find(
@@ -56,9 +74,7 @@ export class App extends Component {
     );
 
     if (filteredContacts.length === 0) {
-      Notiflix.Notify.warning(
-        'No contacts matching your request'
-      );
+      Notiflix.Notify.warning('No contacts matching your request');
     }
     return filteredContacts;
   };
